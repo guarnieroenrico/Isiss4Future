@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITI4FUTURE </title>
+  <meta name="description"
+    content="ITI4Future: l'assistente intelligente dell'ITI G. Caso per orientamento, indirizzi di studio e programmazione">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- INTRO: schermo nero, logo che si dissolve -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-mark" id="intro-mark">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <img src="images/logo.png" alt="">
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+
+      <!-- angolo: stato (pallino) + nuova conversazione -->
+      <div class="corner">
+        <span class="status-badge offline" id="status-badge" title="Stato dell'assistente">
+          <span class="status-dot"></span>
+          <span id="status-text">Connessione...</span>
+        </span>
+        <button class="new-chat-btn" id="new-chat-btn" title="Nuova conversazione" aria-label="Nuova conversazione">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="bg-media" id="bg-media">
+        <div class="bg-item i1"><img src="images/bg/foto1.jpg" alt=""></div>
+        <div class="bg-item i2"><img src="images/bg/foto2.jpg" alt=""></div>
+        <div class="bg-item i3"><img src="images/bg/foto3.jpg" alt=""></div>
+        <div class="bg-item i4"><img src="images/bg/foto4.jpg" alt=""></div>
+        <div class="bg-item i5"><img src="images/bg/foto5.jpg" alt=""></div>
+        <div class="bg-item i6"><img src="images/bg/foto6.jpg" alt=""></div>
+        <div class="bg-item i7"><video src="images/bg/video1.mp4" autoplay muted loop playsinline
+            preload="auto"></video></div>
+        <div class="bg-item i8"><video src="images/bg/video2.mp4" autoplay muted loop playsinline
+            preload="auto"></video></div>
+      </div>
+
+      <div class="glow-background"></div>
+
+      <div class="chat-viewport" id="chat-viewport">
+        <div class="chat-messages" id="chat-messages">
+          <div class="welcome" id="welcome">
+            <!-- il logo è anche il pulsante del menu delle conversazioni -->
+            <div class="hero-logo-wrapper brand" id="brand"><span class="blob b1"></span><span
+                class="blob b2"></span><span class="blob b3"></span>
+              <button class="hero-logo-btn" id="brand-btn" title="Le tue conversazioni" aria-label="Menu conversazioni"
+                aria-haspopup="true" aria-expanded="false" aria-controls="conv-menu">
+                <img src="images/logo.png" alt="ISISS Matese" class="hero-logo">
+                <span class="logo-chev" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg></span>
+              </button>
+              <div class="conv-menu" id="conv-menu" role="menu" aria-label="Conversazioni">
+                <button class="conv-new" id="conv-new" role="menuitem">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Nuova conversazione
+                </button>
+                <div class="conv-label">Recenti</div>
+                <div class="conv-list" id="conv-list"></div>
+              </div>
+            </div>
+            <h1 class="greeting-text">Il tuo futuro, <span class="gradient-text">un percorso alla volta</span></h1>
+            <p class="sub-greeting">Chiedimi qualsiasi cosa sull'ITI "G. Caso" dell'ISISS Matese: indirizzi, materie,
+              i nostri progetti, orientamento o programmazione.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="scroll-down" id="scroll-down" title="Vai in fondo" aria-label="Vai in fondo">↓</button>
+
+      <div class="input-container">
+        <div class="prompt-glow-wrapper">
+          <div class="prompt-box">
+            <textarea id="user-input" placeholder="Chiedi qualsiasi cosa a ITI4Future..." rows="1" autocomplete="off"
+              spellcheck="true"></textarea>
+            <div class="prompt-controls">
+              <span class="prompt-hint">Invio per inviare · Shift+Invio per andare a capo</span>
+              <button class="send-btn" id="send-btn" title="Invia messaggio">➤</button>
+            </div>
+          </div>
+        </div>
+        <div class="disclaimer">
+          ITI4Future può commettere errori: verifica con la segreteria. L'IA gira sul tuo dispositivo, le conversazioni non vengono inviate a nessuno.
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="markdown.js"></script>
+  <script src="knowledge.js"></script>
+  <script type="module" src="llm.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
